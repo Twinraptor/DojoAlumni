@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://Mythosx:mdbProject1!@dojoalumni-z5gvh.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtToken": "secretasianman"
+}

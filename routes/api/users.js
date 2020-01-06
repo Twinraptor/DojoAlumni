@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { check, validationResult } = require("express-validator/check");
+const { check, validationResult } = require("express-validator");
 const mongoose = require("mongoose");
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
@@ -53,7 +53,7 @@ router.post(
         password
       });
 
-      //ebncrypt password
+      //encrypt password
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
 
@@ -71,12 +71,12 @@ router.post(
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
-          res.json({ token });
+          return res.json({ token });
         }
       );
     } catch (err) {
       console.err(err.message);
-      res.status(500).send("Server error");
+      return res.status(500).send("Server error");
     }
   }
 );

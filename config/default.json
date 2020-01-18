@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://Mythosx:mdbProject1!@dojoalumni-z5gvh.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtToken": "secretasianman"
+  "jwtToken": "secretasianman",
+  "githubClientID": "a73e22b3f67631019d04",
+  "githubSecret": "3ae00bffa3d7447463ff82a90b4c79ee04bf9a37"
 }

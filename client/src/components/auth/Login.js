@@ -17,7 +17,6 @@ export const Login = ({ login }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    console.log("this should send email and password", email, password);
     login(email, password);
   };
 

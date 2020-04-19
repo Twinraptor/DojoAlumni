@@ -12,6 +12,7 @@ import CreateProfile from "./components/profile-form/CreateProfile";
 import EditProfile from "./components/profile-form/EditProfile";
 import AddExperience from "./components/profile-form/AddExperience";
 import AddEducation from "./components/profile-form/AddEducation";
+import Profiles from "./components/profiles/Profiles";
 
 //Redux
 import { Provider } from "react-redux";
@@ -60,6 +61,7 @@ const App = () => {
                 path='/add-education'
                 component={AddEducation}
               />
+              <Route exact path='/all-profiles' component={Profiles} />
             </Switch>
           </section>
         </Fragment>

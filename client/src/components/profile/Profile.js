@@ -8,6 +8,7 @@ import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
 import { Link, withRouter } from "react-router-dom";
+import ProfileGithub from "./ProfileGithub";
 
 const Profile = ({
   getProfileByID,
@@ -68,6 +69,9 @@ const Profile = ({
                 <h4>No education listed.</h4>
               )}
             </div>
+            {profile.githubusername && (
+              <ProfileGithub username={profile.githubusername} />
+            )}
           </div>
         </Fragment>
       )}

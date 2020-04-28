@@ -46,7 +46,19 @@ const EditProfile = ({
       instagram: loading || !profile.social ? "" : profile.social.instagram,
     });
     console.log(formData);
-  }, [loading, getCurrentProfile]);
+  }, [
+    loading,
+    getCurrentProfile,
+    profile.company,
+    profile.website,
+    profile.location,
+    profile.status,
+    profile.skills,
+    profile.githubusername,
+    profile.bio,
+    profile.social,
+    formData,
+  ]);
 
   const {
     company,

@@ -139,11 +139,10 @@ router.put("/unlike/:id", auth, async (req, res) => {
 
     // Check if the post has already been liked
     if (
-      (post.likes.filter(
-        (like) => like.user.toString() === req.user.id
-      ).length = 0)
+      post.likes.filter((like) => like.user.toString() === req.user.id)
+        .length === 0
     ) {
-      return res.status(400).json({ msg: "Post already liked." });
+      return res.status(400).json({ msg: "Post is not liked." });
     }
 
     //Get remove index

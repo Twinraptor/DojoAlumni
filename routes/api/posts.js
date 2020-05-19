@@ -81,7 +81,7 @@ router.delete("/:id", auth, async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     if (!post) {
-      return res.status(404).json({ msg: "Post not found." });
+      return res.status(404).json({ msg: "Post not found. Error in try." });
     }
 
     // Check on the user
@@ -94,7 +94,7 @@ router.delete("/:id", auth, async (req, res) => {
   } catch (error) {
     console.error(err.message);
     if (err.kind === "ObjectId") {
-      return res.status(404).json({ msg: "Post not found." });
+      return res.status(404).json({ msg: "Post not found. Error in catch." });
     }
     res.status(500).send("Server Error");
   }

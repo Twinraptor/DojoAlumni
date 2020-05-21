@@ -133,7 +133,6 @@ export const addComment = (postId, formData) => async (dispatch) => {
       "Content-Type": "application/json",
     },
   };
-  console.log("running this route");
   try {
     const res = await axios.post(
       `/api/posts/comment/${postId}`,
@@ -157,19 +156,20 @@ export const addComment = (postId, formData) => async (dispatch) => {
 
 // Delete Comment
 export const deleteComment = (postId, commentId) => async (dispatch) => {
-  try {
-    const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+  console.log("running delete comment");
+  // try {
+  //   const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
-    dispatch({
-      type: DELETE_COMMENT,
-      payload: commentId,
-    });
+  //   dispatch({
+  //     type: DELETE_COMMENT,
+  //     payload: commentId,
+  //   });
 
-    dispatch(setAlert("Comment Deleted", "success"));
-  } catch (err) {
-    dispatch({
-      type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
+  //   dispatch(setAlert("Comment Deleted", "success"));
+  // } catch (err) {
+  //   dispatch({
+  //     type: POST_ERROR,
+  //     payload: { msg: err.response.statusText, status: err.response.status },
+  //   });
+  // }
 };

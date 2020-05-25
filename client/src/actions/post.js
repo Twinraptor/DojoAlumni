@@ -9,6 +9,7 @@ import {
   GET_POST,
   ADD_COMMENT,
   DELETE_COMMENT,
+  UPDATE_LIKES_SINGLE,
 } from "./types";
 
 // Get Posts
@@ -156,20 +157,55 @@ export const addComment = (postId, formData) => async (dispatch) => {
 
 // Delete Comment
 export const deleteComment = (postId, commentId) => async (dispatch) => {
-  console.log("running delete comment");
-  // try {
-  //   const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+  try {
+    const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
-  //   dispatch({
-  //     type: DELETE_COMMENT,
-  //     payload: commentId,
-  //   });
+    dispatch({
+      type: DELETE_COMMENT,
+      payload: commentId,
+    });
 
-  //   dispatch(setAlert("Comment Deleted", "success"));
-  // } catch (err) {
-  //   dispatch({
-  //     type: POST_ERROR,
-  //     payload: { msg: err.response.statusText, status: err.response.status },
-  //   });
-  // }
+    dispatch(setAlert("Comment Deleted", "success"));
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Add like Single
+export const addLikeSingle = (id) => async (dispatch) => {
+  try {
+    const res = await axios.put(`/api/posts/like/${id}`);
+    console.log(res);
+    dispatch({
+      type: UPDATE_LIKES_SINGLE,
+      payload: { id, likes: res.data },
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Unlike Single
+
+export const unLikeSingle = (id) => async (dispatch) => {
+  try {
+    const res = await axios.put(`/api/posts/unlike/${id}`);
+    console.log(res);
+    dispatch({
+      type: UPDATE_LIKES_SINGLE,
+      payload: { id, likes: res.data },
+    });
+    console.log(res.data);
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
 };

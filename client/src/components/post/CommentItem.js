@@ -9,6 +9,7 @@ const CommentItem = ({
   postId,
   comment: { _id, text, name, avatar, user, date },
   auth,
+  deleteComment,
 }) => (
   <Fragment>
     <div className='post bg-white p-1 my-1'>

@@ -11,6 +11,7 @@ import CommentItem from "./CommentItem";
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
     getPost(match.params.id);
+    console.log(post);
   }, [getPost]);
   return loading || post === null ? (
     <Spinner />

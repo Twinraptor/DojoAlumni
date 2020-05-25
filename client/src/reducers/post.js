@@ -7,6 +7,7 @@ import {
   GET_POST,
   ADD_COMMENT,
   DELETE_COMMENT,
+  UPDATE_LIKES_SINGLE,
 } from "../actions/types";
 
 const initialState = {
@@ -55,6 +56,11 @@ export default function (state = initialState, action) {
         posts: state.posts.map((post) =>
           post._id === payload.id ? { ...post, likes: payload.likes } : post
         ),
+        loading: false,
+      };
+    case UPDATE_LIKES_SINGLE:
+      return {
+        ...state,
         post:
           state.post._id === payload._id
             ? { ...state.post, likes: payload.likes }
